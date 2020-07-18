@@ -6,7 +6,7 @@ A pomodoro timer with an Arduino and some segment display
 It's a pomodoro timer with basic functionnalities : 
   * It counts down from 25 minutes and switch to a 5 minutes pause
   * It has a button that can pause current timer or skip session, to go into pause or work mode quickly
-  * You'll know when to stop working it's led indicates it
+  * You'll know when to stop working its led indicates it
 
 # Components
 
