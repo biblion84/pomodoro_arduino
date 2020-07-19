@@ -144,16 +144,22 @@ bool skip = false;
 
 void buttonPressed(){
   unsigned long current = millis();
-  if ((current - lastInput) > 1000){
-    lastInput = current;
-    isRunning = !isRunning;
-    lastPass = current;
+  long elapsed = current - lastInput;
+
+  if (elapsed > 1000){
     quickPress = 0;
-  } else if ((current - lastInput) > 200) {
-    quickPress += 1;
   }
 
-  lastInput = current;
+  if ((elapsed) > 200){
+    if (quickPress == 0){
+      isRunning = !isRunning;
+      lastPass = current;
+      quickPress += 1;
+    } else {
+      quickPress += 1;
+    }
+    lastInput = current;
+  }
 
   if (quickPress >= 2){
     skip = true;
